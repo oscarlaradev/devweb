@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | KodevoInfo</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading spinner -->
+    <div id="loadingSpinner" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Verificando autenticación...</p>
+    </div>
+    
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>KodevoInfo</h2>
+                <button id="sidebarToggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="sidebar-user">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-info">
+                    <p id="welcomeMessage">Bienvenido, Admin</p>
+                </div>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <ul>
+                    <li class="sidebar-menu-item active" data-tab="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </li>
+                    <li class="sidebar-menu-item" data-tab="projects">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Proyectos</span>
+                    </li>
+                    <li class="sidebar-menu-item" data-tab="users">
+                        <i class="fas fa-users"></i>
+                        <span>Usuarios</span>
+                    </li>
+                    <li class="sidebar-menu-item" data-tab="blog">
+                        <i class="fas fa-blog"></i>
+                        <span>Blog/Noticias</span>
+                    </li>
+                    <li class="sidebar-menu-item" data-tab="files">
+                        <i class="fas fa-folder"></i>
+                        <span>Archivos</span>
+                    </li>
+                    <li class="sidebar-menu-item" data-tab="analytics">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Analíticas</span>
+                    </li>
+                    <li class="sidebar-menu-item" data-tab="messages">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mensajes</span>
+                    </li>
+                    <li class="sidebar-menu-item" data-tab="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </li>
+                    <li class="sidebar-menu-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Cerrar Sesión</span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content" id="mainContent">
+            <div class="header">
+                <div class="header-search">
+                    <div class="search-form">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Buscar...">
+                    </div>
+                </div>
+                
+                <div class="header-actions">
+                    <button class="header-action-btn" style="position: relative;">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">0</span>
+                    </button>
+                    <button class="header-action-btn" style="position: relative;">
+                        <i class="fas fa-envelope"></i>
+                        <span class="notification-badge">0</span>
+                    </button>
+                    <a href="index.html" class="header-action-btn" title="Ver sitio">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <strong>Admin</strong>
+                            <span>Administrador</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-container">
+                <!-- Dashboard Tab -->
+                <div id="dashboard" class="tab-content">
+                    <h2 class="content-title">Dashboard</h2>
+                    
+                    <div class="quick-actions">
+                        <div class="quick-action-btn">
+                            <i class="fas fa-plus"></i>
+                            <p>Nuevo Proyecto</p>
+                        </div>
+                        <div class="quick-action-btn">
+                            <i class="fas fa-user-plus"></i>
+                            <p>Nuevo Usuario</p>
+                        </div>
+                        <div class="quick-action-btn">
+                            <i class="fas fa-file-upload"></i>
+                            <p>Subir Archivo</p>
+                        </div>
+                        <div class="quick-action-btn">
+                            <i class="fas fa-edit"></i>
+                            <p>Nueva Entrada</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                            <div class="stat-info">
+                                <h3>Proyectos</h3>
+                                <p id="projectsCount">0</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-users"></i></div>
+                            <div class="stat-info">
+                                <h3>Clientes</h3>
+                                <p id="clientsCount">0</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="stat-info">
+                                <h3>Mensajes</h3>
+                                <p id="messagesCount">0</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="stat-info">
+                                <h3>Visitas</h3>
+                                <p id="visitsCount">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- System Notifications -->
+                    <div class="recent-activity">
+                        <h3>Notificaciones del Sistema</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background-color: #d4edda;"><i class="fas fa-check" style="color: #155724;"></i></div>
+                                <div class="activity-info">
+                                    <p>Sistema inicializado correctamente</p>
+                                    <span>Ahora</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background-color: #cce5ff;"><i class="fas fa-info-circle" style="color: #004085;"></i></div>
+                                <div class="activity-info">
+                                    <p>Panel de administración listo para uso</p>
+                                    <span>Ahora</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Activity -->
+                    <div class="recent-activity">
+                        <h3>Actividad Reciente</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon"><i class="fas fa-user"></i></div>
+                                <div class="activity-info">
+                                    <p>Inicio de sesión</p>
+                                    <span>Ahora</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projects Tab -->
+                <div id="projects" class="tab-content" style="display: none;">
+                    <h2 class="content-title">Gestión de Proyectos</h2>
+                    
+                    <div class="action-bar">
+                        <button class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Proyecto</button>
+                        <button class="btn btn-secondary"><i class="fas fa-filter"></i> Filtrar</button>
+                        <button class="btn btn-secondary"><i class="fas fa-sort"></i> Ordenar</button>
+                        <button class="btn btn-secondary"><i class="fas fa-file-export"></i> Exportar</button>
+                    </div>
+                    
+                    <div class="projects-list">
+                        <p>No hay proyectos disponibles.</p>
+                    </div>
+                </div>
+                
+                <!-- Users Tab -->
+                <div id="users" class="tab-content" style="display: none;">
+                    <h2 class="content-title">Gestión de Usuarios</h2>
+                    
+                    <div class="action-bar">
+                        <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Nuevo Usuario</button>
+                        <button class="btn btn-secondary"><i class="fas fa-filter"></i> Filtrar</button>
+                        <button class="btn btn-secondary"><i class="fas fa-sort"></i> Ordenar</button>
+                        <button class="btn btn-secondary"><i class="fas fa-file-export"></i> Exportar</button>
+                    </div>
+                    
+                    <div class="user-list">
+                        <p>No hay usuarios registrados.</p>
+                    </div>
+                </div>
+                
+                <!-- Blog/News Tab -->
+                <div id="blog" class="tab-content" style="display: none;">
+                    <h2 class="content-title">Gestión de Blog/Noticias</h2>
+                    
+                    <div class="action-bar">
+                        <button class="btn btn-primary"><i class="fas fa-plus"></i> Nueva Entrada</button>
+                        <button class="btn btn-secondary"><i class="fas fa-filter"></i> Filtrar</button>
+                        <button class="btn btn-secondary"><i class="fas fa-sort"></i> Ordenar</button>
+                    </div>
+                    
+                    <div class="blog-posts-list">
+                        <p>No hay entradas de blog disponibles.</p>
+                    </div>
+                </div>
+                
+                <!-- File Manager Tab -->
+                <div id="files" class="tab-content" style="display: none;">
+                    <h2 class="content-title">Gestor de Archivos</h2>
+                    
+                    <div class="action-bar">
+                        <button class="btn btn-primary"><i class="fas fa-file-upload"></i> Subir Archivo</button>
+                        <button class="btn btn-secondary"><i class="fas fa-folder-plus"></i> Nueva Carpeta</button>
+                        <button class="btn btn-secondary"><i class="fas fa-filter"></i> Filtrar</button>
+                    </div>
+                    
+                    <div class="file-navigation">
+                        <p><i class="fas fa-folder-open"></i> Inicio</p>
+                    </div>
+                    
+                    <div class="file-manager-grid">
+                        <p>No hay archivos disponibles.</p>
+                    </div>
+                </div>
+                
+                <!-- Analytics Tab -->
+                <div id="analytics" class="tab-content" style="display: none;">
+                    <h2 class="content-title">Analíticas</h2>
+                    
+                    <div class="analytics-filters">
+                        <select>
+                            <option>Últimos 7 días</option>
+                            <option>Últimos 30 días</option>
+                            <option>Este mes</option>
+                            <option>Este año</option>
+                            <option>Personalizado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="analytics-chart">
+                        <h3>Visitas al Sitio</h3>
+                        <div class="chart-placeholder" style="height: 250px; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center;">
+                            <p>No hay datos disponibles</p>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="analytics-chart">
+                            <h3>Fuentes de Tráfico</h3>
+                            <div class="chart-placeholder" style="height: 200px; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center;">
+                                <p>No hay datos disponibles</p>
+                            </div>
+                        </div>
+                        
+                        <div class="analytics-chart">
+                            <h3>Páginas Más Visitadas</h3>
+                            <div class="chart-placeholder" style="height: 200px; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center;">
+                                <p>No hay datos disponibles</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-chart">
+                        <h3>Dispositivos</h3>
+                        <div class="chart-placeholder" style="height: 200px; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center;">
+                            <p>No hay datos disponibles</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Messages Tab -->
+                <div id="messages" class="tab-content" style="display: none;">
+                    <h2 class="content-title">Mensajes</h2>
+                    
+                    <div class="action-bar">
+                        <button class="btn btn-primary"><i class="fas fa-envelope"></i> Nuevo Mensaje</button>
+                        <button class="btn btn-secondary"><i class="fas fa-filter"></i> Filtrar</button>
+                        <button class="btn btn-secondary"><i class="fas fa-sort"></i> Ordenar</button>
+                    </div>
+                    
+                    <div class="messages-list">
+                        <p>No hay mensajes disponibles.</p>
+                    </div>
+                </div>
+                
+                <!-- Settings Tab -->
+                <div id="settings" class="tab-content" style="display: none;">
+                    <h2 class="content-title">Configuración</h2>
+                    
+                    <div class="settings-tabs">
+                        <button class="settings-tab-btn active" data-settings-tab="general">General</button>
+                        <button class="settings-tab-btn" data-settings-tab="appearance">Apariencia</button>
+                        <button class="settings-tab-btn" data-settings-tab="security">Seguridad</button>
+                        <button class="settings-tab-btn" data-settings-tab="notifications">Notificaciones</button>
+                        <button class="settings-tab-btn" data-settings-tab="backup">Copias de Seguridad</button>
+                    </div>
+                    <div class="settings-tabs-content">
+                        <!-- General Settings Tab -->
+                        <div id="general-settings" class="settings-tab-content active">
+                            <div class="settings-form">
+                                <form id="generalSettingsForm">
+                                    <div class="form-group">
+                                        <label>Título del Sitio</label>
+                                        <input type="text" id="siteTitle" value="KodevoInfo">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Descripción</label>
+                                        <textarea id="siteDescription">Desarrollo web profesional y soluciones digitales</textarea>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Email de Contacto</label>
+                                        <input type="email" id="contactEmail" value="">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Teléfono de Contacto</label>
+                                        <input type="text" id="contactPhone" value="">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Dirección</label>
+                                        <textarea id="contactAddress"></textarea>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Appearance Settings Tab -->
+                        <div id="appearance-settings" class="settings-tab-content">
+                            <div class="settings-form">
+                                <form id="appearanceSettingsForm">
+                                    <div class="form-group">
+                                        <label>Tema del Sitio</label>
+                                        <select id="siteTheme">
+                                            <option value="light">Claro</option>
+                                            <option value="dark">Oscuro</option>
+                                            <option value="custom">Personalizado</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Color Principal</label>
+                                        <input type="color" id="primaryColor" value="#3498db">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Color Secundario</label>
+                                        <input type="color" id="secondaryColor" value="#2ecc71">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Fuente Principal</label>
+                                        <select id="primaryFont">
+                                            <option value="Poppins">Poppins</option>
+                                            <option value="Roboto">Roboto</option>
+                                            <option value="Open Sans">Open Sans</option>
+                                            <option value="Montserrat">Montserrat</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Logo del Sitio</label>
+                                        <div class="file-upload-container">
+                                            <input type="file" id="siteLogo" accept="image/*">
+                                            <button type="button" class="btn btn-secondary">Seleccionar Archivo</button>
+                                        </div>
+                                        <div class="logo-preview" style="margin-top: 10px; max-width: 200px;">
+                                            <p>No hay logo cargado</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Security Settings Tab -->
+                        <div id="security-settings" class="settings-tab-content">
+                            <div class="settings-form">
+                                <form id="securitySettingsForm">
+                                    <div class="form-group">
+                                        <label>Cambiar Contraseña</label>
+                                        <input type="password" id="currentPassword" placeholder="Contraseña Actual">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <input type="password" id="newPassword" placeholder="Nueva Contraseña">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Autenticación de Dos Factores</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="twoFactorAuth">
+                                            <label for="twoFactorAuth"></label>
+                                            <span>Activar autenticación de dos factores</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Sesiones Activas</label>
+                                        <div class="active-sessions">
+                                            <p>No hay sesiones activas adicionales</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Notifications Settings Tab -->
+                        <div id="notifications-settings" class="settings-tab-content">
+                            <div class="settings-form">
+                                <form id="notificationsSettingsForm">
+                                    <div class="form-group">
+                                        <label>Notificaciones por Email</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="emailNotifications" checked>
+                                            <label for="emailNotifications"></label>
+                                            <span>Recibir notificaciones por email</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Tipos de Notificaciones</label>
+                                        <div class="checkbox-group">
+                                            <div class="checkbox-item">
+                                                <input type="checkbox" id="newMessageNotif" checked>
+                                                <label for="newMessageNotif">Nuevos mensajes</label>
+                                            </div>
+                                            
+                                            <div class="checkbox-item">
+                                                <input type="checkbox" id="newProjectNotif" checked>
+                                                <label for="newProjectNotif">Nuevos proyectos</label>
+                                            </div>
+                                            
+                                            <div class="checkbox-item">
+                                                <input type="checkbox" id="systemUpdateNotif" checked>
+                                                <label for="systemUpdateNotif">Actualizaciones del sistema</label>
+                                            </div>
+                                            
+                                            <div class="checkbox-item">
+                                                <input type="checkbox" id="securityAlertNotif" checked>
+                                                <label for="securityAlertNotif">Alertas de seguridad</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Backup Settings Tab -->
+                        <div id="backup-settings" class="settings-tab-content">
+                            <div class="settings-form">
+                                <div class="backup-section">
+                                    <h3>Copias de Seguridad Automáticas</h3>
+                                    <div class="form-group">
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="autoBackup" checked>
+                                            <label for="autoBackup"></label>
+                                            <span>Activar copias de seguridad automáticas</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Frecuencia</label>
+                                        <select id="backupFrequency">
+                                            <option value="daily">Diaria</option>
+                                            <option value="weekly" selected>Semanal</option>
+                                            <option value="monthly">Mensual</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="backup-section">
+                                    <h3>Copias de Seguridad Manuales</h3>
+                                    <p>No hay copias de seguridad disponibles</p>
+                                    <button class="btn btn-primary"><i class="fas fa-download"></i> Crear Copia de Seguridad</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

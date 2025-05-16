@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - Desarrollador Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="js/menu.js"></script> 
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#home">KodevoInfo</a>
+            </div>
+            
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Inicio</a></li>
+                    <li><a href="#about" class="nav-link">Sobre Mí</a></li>
+                    <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                    <li><a href="#projects" class="nav-link">Proyectos</a></li>
+                    <li><a href="#contact" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="animate-text">Desarrollador Web Full Stack</h1>
+                    <p class="animate-text delay-1">Creando experiencias digitales impactantes</p>
+                    <div class="hero-buttons animate-text delay-2">
+                        <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
+                        <a href="#contact" class="btn btn-outline">Contactar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-shape"></div>
+        </section>
+
+        <section id="about" class="about section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title animate-on-scroll">Sobre Mí</h2>
+                    <div class="section-line animate-on-scroll"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-image animate-on-scroll">
+                        <img src="https://placehold.co/400x400" alt="Mi foto de perfil">
+                    </div>
+                    <div class="about-text">
+                        <h3 class="animate-on-scroll">¡Hola! Soy <span class="highlight">Desarrollador Web</span></h3>
+                        <p class="animate-on-scroll">
+                            Soy un desarrollador web apasionado por crear soluciones digitales innovadoras y funcionales. 
+                            Con experiencia en desarrollo frontend y backend, me especializo en construir aplicaciones web 
+                            modernas y responsivas que ofrecen excelentes experiencias de usuario.
+                        </p>
+                        <p class="animate-on-scroll">
+                            Mi objetivo es combinar diseño atractivo con funcionalidad robusta para crear 
+                            productos digitales que resuelvan problemas reales y superen las expectativas de los clientes.
+                        </p>
+                        <div class="about-info animate-on-scroll">
+                            <div class="info-item">
+                                <span class="info-title">Nombre:</span>
+                                <span class="info-value">Oscar Rodríguez</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-title">Email:</span>
+                                <span class="info-value">contacto@kodevo.info</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-title">Ubicación:</span>
+                                <span class="info-value">Madrid, España</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-title">Disponibilidad:</span>
+                                <span class="info-value">Freelance / Tiempo completo</span>
+                            </div>
+                        </div>
+                        <div class="about-buttons animate-on-scroll">
+                            <a href="#contact" class="btn btn-primary">Contáctame</a>
+                            <a href="#" class="btn btn-outline">Descargar CV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title animate-on-scroll">Mis Habilidades</h2>
+                    <div class="section-line animate-on-scroll"></div>
+                </div>
+                <div class="skills-content">
+                    <div class="skills-category animate-on-scroll">
+                        <h3>Frontend</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                                <h4>HTML5</h4>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                                <h4>CSS3</h4>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-js"></i></div>
+                                <h4>JavaScript</h4>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-react"></i></div>
+                                <h4>React</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills-category animate-on-scroll">
+                        <h3>Backend</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-php"></i></div>
+                                <h4>PHP</h4>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                                <h4>Node.js</h4>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fas fa-database"></i></div>
+                                <h4>MySQL</h4>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fas fa-server"></i></div>
+                                <h4>API REST</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills-category animate-on-scroll">
+                        <h3>Herramientas</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                                <h4>Git</h4>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-docker"></i></div>
+                                <h4>Docker</h4>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-figma"></i></div>
+                                <h4>Figma</h4>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fas fa-code-branch"></i></div>
+                                <h4>CI/CD</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title animate-on-scroll">Mis Proyectos</h2>
+                    <div class="section-line animate-on-scroll"></div>
+                </div>
+                
+                <div class="projects-filter animate-on-scroll">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                    <button class="filter-btn" data-filter="app">Aplicaciones</button>
+                    <button class="filter-btn" data-filter="design">Diseño</button>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="project-item web show animate-on-scroll">
+                        <div class="project-img">
+                            <img src="https://placehold.co/600x400" alt="Proyecto 1">
+                        </div>
+                        <div class="project-info">
+                            <h3>Plataforma E-learning</h3>
+                            <p>Desarrollo de plataforma educativa con sistema de cursos, evaluaciones y certificados.</p>
+                            <div class="project-tags">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn-small"><i class="fas fa-link"></i> Demo</a>
+                                <a href="#" class="btn-small"><i class="fab fa-github"></i> Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item app show animate-on-scroll">
+                        <div class="project-img">
+                            <img src="https://placehold.co/600x400" alt="Proyecto 2">
+                        </div>
+                        <div class="project-info">
+                            <h3>App de Gestión de Tareas</h3>
+                            <p>Aplicación para organizar tareas con recordatorios, categorías y estadísticas.</p>
+                            <div class="project-tags">
+                                <span>Vue.js</span>
+                                <span>Firebase</span>
+                                <span>PWA</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn-small"><i class="fas fa-link"></i> Demo</a>
+                                <a href="#" class="btn-small"><i class="fab fa-github"></i> Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item design show animate-on-scroll">
+                        <div class="project-img">
+                            <img src="https://placehold.co/600x400" alt="Proyecto 3">
+                        </div>
+                        <div class="project-info">
+                            <h3>Rediseño de Marca</h3>
+                            <p>Renovación completa de identidad visual para empresa de tecnología.</p>
+                            <div class="project-tags">
+                                <span>Figma</span>
+                                <span>Branding</span>
+                                <span>UI/UX</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn-small"><i class="fas fa-link"></i> Demo</a>
+                                <a href="#" class="btn-small"><i class="fab fa-behance"></i> Portafolio</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item web show animate-on-scroll">
+                        <div class="project-img">
+                            <img src="https://placehold.co/600x400" alt="Proyecto 4">
+                        </div>
+                        <div class="project-info">
+                            <h3>Tienda Online</h3>
+                            <p>E-commerce completo con catálogo, carrito, pagos y panel de administración.</p>
+                            <div class="project-tags">
+                                <span>WordPress</span>
+                                <span>WooCommerce</span>
+                                <span>PHP</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn-small"><i class="fas fa-link"></i> Demo</a>
+                                <a href="#" class="btn-small"><i class="fab fa-github"></i> Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item app show animate-on-scroll">
+                        <div class="project-img">
+                            <img src="https://placehold.co/600x400" alt="Proyecto 5">
+                        </div>
+                        <div class="project-info">
+                            <h3>Dashboard Analítico</h3>
+                            <p>Panel de control con visualización de datos en tiempo real y reportes personalizados.</p>
+                            <div class="project-tags">
+                                <span>Angular</span>
+                                <span>D3.js</span>
+                                <span>Express</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn-small"><i class="fas fa-link"></i> Demo</a>
+                                <a href="#" class="btn-small"><i class="fab fa-github"></i> Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item design show animate-on-scroll">
+                        <div class="project-img">
+                            <img src="https://placehold.co/600x400" alt="Proyecto 6">
+                        </div>
+                        <div class="project-info">
+                            <h3>Diseño de Aplicación Móvil</h3>
+                            <p>Diseño UX/UI para aplicación de finanzas personales con múltiples funcionalidades.</p>
+                            <div class="project-tags">
+                                <span>Adobe XD</span>
+                                <span>Sketch</span>
+                                <span>Prototyping</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn-small"><i class="fas fa-link"></i> Demo</a>
+                                <a href="#" class="btn-small"><i class="fab fa-dribbble"></i> Dribbble</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title animate-on-scroll">Contáctame</h2>
+                    <div class="section-line animate-on-scroll"></div>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info animate-on-scroll">
+                        <h3>¿Tienes un proyecto en mente?</h3>
+                        <p>Estoy disponible para proyectos freelance y oportunidades de trabajo a tiempo completo. ¡Hablemos sobre cómo puedo ayudarte!</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Email</h4>
+                                    <p>contacto@kodevo.info</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Teléfono</h4>
+                                    <p>+34 612 345 678</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Ubicación</h4>
+                                    <p>Madrid, España</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form animate-on-scroll">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Tu email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="text" id="subject" name="subject" placeholder="Asunto" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="Tu mensaje" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>KodevoInfo</h3>
+                    <p>Desarrollo web profesional</p>
+                </div>
+                
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#about">Sobre Mí</a></li>
+                        <li><a href="#skills">Habilidades</a></li>
+                        <li><a href="#projects">Proyectos</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 KodevoInfo. Todos los derechos reservados.</p>
+                <a href="login.html" class="admin-link" title="Administración"><i class="fas fa-lock"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
